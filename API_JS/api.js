@@ -27,6 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
         //caso contrário é light e o botão deve ser mudado para acor dark
         botaoTema.textContent = '🌙';
     }
+
+    const enderecoSalvo = JSON.parse(localStorage.getItem("endereco"));
+
+    if(enderecoSalvo){
+        document.getElementById("cep").value = enderecoSalvo.cep;
+        document.getElementById("logradouro").value = enderecoSalvo.logradouro;
+        document.getElementById("bairro").value = enderecoSalvo.bairro;
+        document.getElementById("cidade").value = enderecoSalvo.cidade;
+        document.getElementById("estado").value = enderecoSalvo.estado;
+    }   
 })
 
 
@@ -49,6 +59,17 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
                 document.getElementById("bairro").value = data.bairro;
                 document.getElementById("cidade").value = data.localidade;
                 document.getElementById("estado").value = data.uf;
+
+                const dadosEndereco = {
+                    cep: cepInformado,
+                    logradouro: data.logradouro,
+                    bairro: data.bairro,
+                    cidade: data.localidade,
+                    estado: data.uf
+                }
+
+                localStorage.setItem("endereco", JSON.stringify(dadosEndereco));
+
             } else {
                 alert("CEP não encontrado!");
             }
@@ -56,5 +77,15 @@ document.getElementById("cep").addEventListener("blur", (evento) => {
         .catch(error => console.error("Erro ao buscar o CEP: ", error));
     
 })
+// Ouça o evento de input no campo número
+document.getElementById("numero").addEventListener("input", (evento) => {
+    localStorage.setItem("numeroCasa", evento.target.value);
+});
+
+// E adicione isso dentro do DOMContentLoaded para recuperar:
+const numeroSalvo = localStorage.getItem("numeroCasa");
+if(numeroSalvo) {
+    document.getElementById("numero").value = numeroSalvo;
+}
 
 
