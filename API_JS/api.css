@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --cor-fundo: #ffffff;
+    --cor-fundo-dark: #333333;
+    --cor-texto: #000000;
+    --cor-texto-dark: #ffffff;
+    --cor-fundo-form: #ffffff;
+    --cor-fundo-form-dark: #424242;
+    --cor-borda-form: #000000;
+    --cor-borda-form-dark: #ffffff;
+    --cor-borda-input: #cccccc;
+    --cor-borda-input-dark: #666666;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.Dark {
+    background-color: var(--cor-fundo-dark);
+    color: var(--cor-texto-dark);
+    --cor-fundo-form: var(--cor-fundo-form-dark);
+    --cor-borda-form: var(--cor-borda-form-dark);
+    --cor-borda-input: var(--cor-borda-input-dark);
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--cor-fundo-form);
+    max-width: 400px;
+    width: 100%;
+    border-color: var(--cor-borda-form);
+}
+
+input, button {
+    border: 1px solid var(--cor-borda-input);
+    padding: 10px;
+    border-radius: 8px;
+
+    transition: background-color 0.3s;
+}
+
+button:hover {             
+    background-color: #ddd;
+}   
+
+input:focus {
+    outline: none;
+    border: 2px solid #6c63ff; 
+}
